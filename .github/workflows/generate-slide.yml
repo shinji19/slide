@@ -33,6 +33,7 @@ jobs:
       
       - name: Generate pdf
         run: |
+          git log -n 1
           for file in $(git diff HEAD~ HEAD --name-only '*.md') ; do
             echo $file
             if [ $file != "README.md" ]; then
