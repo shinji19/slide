@@ -47,12 +47,14 @@ jobs:
     
       - name: Commit pdf
         run: |
-          git remote -v
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m "Generate pdf from $GITHUB_SHA"
-          git push
+          diff = $(git status -s | wc -l)
+          if [ $diff -gt 0 ]; then
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git add .
+            git commit -m "Generate pdf from $GITHUB_SHA"
+            git push
+          fi
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
