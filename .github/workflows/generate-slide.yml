@@ -33,7 +33,7 @@ jobs:
       
       - name: Generate pdf
         run: |
-          git log -n 1
+          git log -n 10
           for file in $(git diff $GITHUB_SHA~ $GITHUB_SHA --name-only '*.md') ; do
             echo $file
             if [ $file != "README.md" ]; then
