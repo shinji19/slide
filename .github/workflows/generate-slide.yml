@@ -34,7 +34,6 @@ jobs:
       - name: Generate pdf
         run: |
           git fetch --depth 2
-          git log -n 10
           for file in $(git diff $GITHUB_SHA~ $GITHUB_SHA --name-only '*.md') ; do
             echo $file
             if [ $file != "README.md" ]; then
@@ -42,9 +41,6 @@ jobs:
             fi
           done
 
-      # - name: Generate pdf
-      #   run: npx @marp-team/marp-cli@latest ${{ github.event.inputs.file_path }} --pdf
-    
       - name: Commit pdf
         run: |
           diff=$(git status -s | wc -l)
