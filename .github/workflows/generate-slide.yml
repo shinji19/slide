@@ -33,7 +33,7 @@ jobs:
       
       - name: Generate pdf
         run: |
-          git fetch --depth 2
+          git fetch --depth 1
           git log -n 10
           for file in $(git diff $GITHUB_SHA~ $GITHUB_SHA --name-only '*.md') ; do
             echo $file
@@ -44,9 +44,15 @@ jobs:
 
       # - name: Generate pdf
       #   run: npx @marp-team/marp-cli@latest ${{ github.event.inputs.file_path }} --pdf
-
-      # - name: commit pdf
-      #   run: npx @marp-team/marp-cli@latest slide-deck.md --pdf
+    
+      - name: Commit pdf
+        run: |
+          git remote -v
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Generate pdf from $GITHUB_SHA"
+          git push
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
