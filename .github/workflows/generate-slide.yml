@@ -5,8 +5,9 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  # push:
-  #   branches: [ main ]
+  push:
+    paths:
+      - '**.md'
   # pull_request:
   #   branches: [ main ]
 
@@ -23,18 +24,21 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Generate pdf
+        run: |
+          for file in $(git diff origin/${GITHUB_BASE_REF}..origin/${GITHUB_HEAD_REF} --name-only --diff-filter=A -- '*.md') ; do
+            echo $file
+          done
 
-      - name: echo file path
-        run: echo ${{ github.event.inputs.file_path }}
-
-      - name: generate pdf
-        run: npx @marp-team/marp-cli@latest ${{ github.event.inputs.file_path }} --pdf
+      # - name: Generate pdf
+      #   run: npx @marp-team/marp-cli@latest ${{ github.event.inputs.file_path }} --pdf
 
       # - name: commit pdf
       #   run: npx @marp-team/marp-cli@latest slide-deck.md --pdf
