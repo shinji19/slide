@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install language-pack-ja 
-        run: apt install language-pack-ja
+        run: sudo apt install language-pack-ja
 
       - name: Generate
         run: |
