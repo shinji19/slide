@@ -1,6 +1,12 @@
 ---
 marp: true
 theme: gaia
+math: katex
+style: |
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+  section {
+    font-family: 'Noto Sans JP', serif;
+  }
 ---
 
 <!-- class: invert -->
