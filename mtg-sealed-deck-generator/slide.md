@@ -136,10 +136,16 @@ style: |
 
 ---
 
+## 実装
+
+https://github.com/shinji19/sealed-deck-generator
+
+---
+
 ## 実行
 
-- pool
+- 90枚のカード
   - https://www.moxfield.com/decks/7KW-NWrdiEOQkxL1qtvpqQ
-- result
+- 結果
   - https://www.moxfield.com/decks/1r0w77ZCTEWD5JKMh_Y5nQ
   - https://www.moxfield.com/decks/7AncGnzLUU-FUxQ71Q73iQ
