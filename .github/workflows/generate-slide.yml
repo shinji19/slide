@@ -30,12 +30,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: Install language-pack-ja 
-        run: |
-          sudo apt install language-pack-ja
-          LANG=ja_JP.UTF-8
-          LANGUAGE="ja_JP:ja"
 
       - name: Generate
         run: |
