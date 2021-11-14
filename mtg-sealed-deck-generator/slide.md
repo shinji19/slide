@@ -137,4 +137,3 @@ theme: gaia
 - result
   - https://www.moxfield.com/decks/1r0w77ZCTEWD5JKMh_Y5nQ
   - https://www.moxfield.com/decks/7AncGnzLUU-FUxQ71Q73iQ
-
