@@ -31,17 +31,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Generate pdf
+      - name: Install language-pack-ja 
+        run: apt install language-pack-ja
+
+      - name: Generate
         run: |
           git fetch --depth 2
           for file in $(git diff $GITHUB_SHA~ $GITHUB_SHA --name-only '*.md') ; do
             echo $file
             if [ $file != "README.md" ]; then
+              npx @marp-team/marp-cli@v1.4.2 $file
               npx @marp-team/marp-cli@v1.4.2 $file --pdf
             fi
           done
 
-      - name: Commit pdf
+      - name: Commit
         run: |
           diff=$(git status -s | wc -l)
           if [ $diff -gt 0 ]; then
