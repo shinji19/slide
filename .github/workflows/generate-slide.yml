@@ -41,6 +41,9 @@ jobs:
           git log
           git fetch --depth 2
           git log
+          git checkout 2da9530fe0aa76bde11eb184abf94d85e3a581ba
+          echo testsetsetsetsetset
+          git log
           for file in $(git diff --diff-filter=d $GITHUB_SHA~ $GITHUB_SHA --name-only '*.md') ; do
             echo $file
             if [ $file != "README.md" ]; then
