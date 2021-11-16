@@ -38,8 +38,10 @@ jobs:
         run: |
           git remote -v
           git branch -v
+          git log
           git fetch --depth 2
-          for file in $(git diff --diff-filter=d e4e65c752060bceb8e185e1973f937336c38b843 $GITHUB_SHA --name-only '*.md') ; do
+          git log
+          for file in $(git diff --diff-filter=d $GITHUB_SHA~ $GITHUB_SHA --name-only '*.md') ; do
             echo $file
             if [ $file != "README.md" ]; then
               npx @marp-team/marp-cli@v1.4.2 $file
