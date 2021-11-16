@@ -6,6 +6,8 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
+    branches:
+      - main
     paths:
       - '**.md'
       - '!README.md'
@@ -37,7 +39,7 @@ jobs:
           git remote -v
           git branch -v
           git fetch --depth 2
-          for file in $(git diff --diff-filter=d origin/master $GITHUB_SHA --name-only '*.md') ; do
+          for file in $(git diff --diff-filter=d $GITHUB_SHA~ $GITHUB_SHA --name-only '*.md') ; do
             echo $file
             if [ $file != "README.md" ]; then
               npx @marp-team/marp-cli@v1.4.2 $file
