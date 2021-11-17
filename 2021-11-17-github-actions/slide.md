@@ -13,7 +13,7 @@ style: |
 
 # とっしんの会
 
-## MarpとGitHub Actions
+## MarpとGitHub Actions !
 
 2021/11/17(水)
 
