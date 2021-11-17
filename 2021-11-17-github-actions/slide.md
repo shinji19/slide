@@ -11,7 +11,9 @@ style: |
 
 <!-- class: invert -->
 
-# MarpとGitHub Actions
+# とっしんの会
+
+## MarpとGitHub Actions
 
 2021/11/17(水)
 
