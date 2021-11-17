@@ -28,10 +28,19 @@ style: |
 
 ---
 
+## 発表資料を作るのに何を使っていますか？
+
+- PowerPoint
+- Google スライド, slides (https://slides.com/)
+- Markdown + 変換ツール・サービス
+  - Marp
+
+---
+
 ## Marp
 
 - Markdownからプレゼン資料を生成する
-- VS Code拡張, CLI, Core(javascriptから利用)がある
+- VS Code拡張, CLI, Core(JavaScriptから利用)がある
 ![10% right](https://marp.app/assets/marp.svg)
 https://github.com/marp-team/marp
 
